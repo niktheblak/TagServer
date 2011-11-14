@@ -1,0 +1,34 @@
+TagServer - a local server component that keeps track of the metadata of your
+multimedia files. The server component is implemented as a Scala Actor.
+
+Basic usage patterns:
+
+1) Start the tagserver.server.TagServer actor 
+2) Tell the TagServer actor where you keep your multimedia files with the AddBaseDirectory message
+3) Request the TagServer actor to reload its database by sending it the ReloadTagsRequest message
+4) Query the tag database via the GetTagsRequest and SearchRequest messages as you please
+
+To out the system, compile and run the tagserver.CLI class with Scala command
+line tools or within Eclipse via Run As -> Scala Application. This will launch
+an interactive prompt that you can use to interact with the system.
+
+Command reference for the interactive prompt:
+
+reload
+  Reloads tag database
+reloadasync
+  Reloads tag database asynchronously, prints the contents of each discovered tag to the console
+list
+  Prints the contents of the tag database
+listdirs
+  Prints the currently registered base directories
+adddir <directory>
+  Adds a new base directory to scan tags from
+removedir <directory>
+  Removes a base directory
+search <query>
+  Searches the tag database, accepts DOS-style wildcards (* and ?)
+ping
+  Sends a ping request to the server
+exit
+  Exits the client and the server process
